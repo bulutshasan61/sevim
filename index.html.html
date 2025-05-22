@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Sevgi Oyunu 💛</title>
+    <style>
+        body {
+            background: #fff8f0;
+            font-family: 'Comic Sans MS', cursive;
+            text-align: center;
+            padding-top: 50px;
+            color: #444;
+        }
+        h1 {
+            color: #e67300;
+        }
+        .box {
+            width: 120px;
+            height: 120px;
+            display: none; /* Başlangıçta gizli */
+            margin: 10px;
+            background-color: #dfffe0;
+            border: 2px solid #8fd18f;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 20px;
+            color: #2e7d32;
+            transition: transform 0.2s;
+        }
+        .box:hover {
+            transform: scale(1.1);
+        }
+        #message {
+            margin-top: 30px;
+            font-size: 24px;
+            color: #e67300;
+        }
+    </style>
+</head>
+<body>
+
+<h1>💛 Sevgilim İçin Küçük Bir Oyun 💚</h1>
+<p>Tatlı mesajları bulmak için kutulara tıkla!</p>
+
+<div class="box" onclick="showMessage('Bir gülüşünle güneş doğuyor sanki...')">1</div>
+<div class="box" onclick="showMessage('Yeşil gözlerinle büyülüyorsun beni 💚')">2</div>
+<div class="box" onclick="showFinalMessage()">3</div>
+
+<div id="message"></div>
+<div id="final-image" style="margin-top: 20px;"></div>
+
+<script>
+    // Kutuları sırayla ekrana getir
+    window.addEventListener('DOMContentLoaded', () => {
+        const boxes = document.querySelectorAll('.box');
+        boxes.forEach((box, i) => {
+            setTimeout(() => {
+                box.style.display = 'inline-block';
+            }, i * 500);
+        });
+    });
+
+    function showMessage(text) {
+        document.getElementById('message').innerText = text;
+        document.getElementById('final-image').innerHTML = '';
+    }
+
+    function showFinalMessage() {
+        const text = "Sen de benim gördüğüm bu melek yüzünü görseydin, sen de saçmalardın... Seni kıskanıyorum, affet beni sevgilim.";
+        document.getElementById('message').innerText = text;
+        document.getElementById('final-image').innerHTML = '<img src="melek.jpg" alt="Melek Yüz" style="width:300px;border-radius:15px;margin-top:15px;">';
+    }
+</script>
+
+</body>
+</html>
